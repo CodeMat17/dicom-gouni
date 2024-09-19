@@ -1,14 +1,20 @@
-import React from 'react'
+import FeaturedSections from "@/components/FeaturedSections";
+import { HeroPage } from "@/components/HeroPage";
+import { createClient } from "@/utils/supabase/server";
 
-const Home = () => {
+const Home = async () => {
+  const supabase = createClient();
+
+  const { data } = await supabase.from("hero").select("*").single();
+
   return (
-    <div className='w-full h-screen flex flex-col items-center justify-center px-4 '>
-      <h1 className='text-4xl font-semibold text-center text-gray-500'>
-        This site is still being developed. Check again.
-      </h1>
-      <p className='mt-5'>DICOM GOUNI Management.</p>
+    <div className='w-full '>
+      <HeroPage title={data.title} desc={data.desc} imgs={data.imgs} />
+
+      {/* <pre>{ JSON.stringify(achievements, null, 2)}</pre> */}
+      <FeaturedSections />
     </div>
   );
-}
+};
 
-export default Home
+export default Home;
