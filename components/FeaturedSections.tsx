@@ -18,38 +18,6 @@ type Achievement = {
   content: AchievementContent[];
 };
 
-// Mock data for achievements and events
-const achievements = [
-  {
-    id: 1,
-    title: "All Nigerian Youth Debate Championshipr",
-    description:
-      "Our debate team broke into the semi-finals, secured a medal for adjudication and an award for the most promising debate team in the country..",
-    imageUrl: "/hero1.jpg",
-    //   "https://images.unsplash.com/photo-1482189349482-3defd547e0e9?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 2,
-    title: "Inter-University Hackathon",
-    description:
-      "Students developed innovative solutions and won the hackathon.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1482189349482-3defd547e0e9?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
-
-const events = [
-  {
-    id: 1,
-    title: "Annual Quiz Competition",
-    date: "Sep 10, 2024",
-  },
-  {
-    id: 2,
-    title: "Tech Innovation Challenge",
-    date: "Oct 05, 2024",
-  },
-];
 
 const FeaturedSections: React.FC = async () => {
   const supabase = createClient();
@@ -58,7 +26,7 @@ const FeaturedSections: React.FC = async () => {
     .from("achievements")
     .select("*")
     .order("created_at", { ascending: true })
-    .limit(2);;
+    .limit(2);
 
   if (error) {
     console.error("Error fetching achievements: ", error);
@@ -72,12 +40,18 @@ const FeaturedSections: React.FC = async () => {
     const parsedContent = achievement.content.map((contentString: string) =>
       JSON.parse(contentString)
     );
-    console.log("Parsed content for achievement:", parsedContent);
+    // console.log("Parsed content for achievement:", parsedContent);
     return {
       ...achievement,
       content: parsedContent,
     };
   });
+
+    const { data: events, error: eventsError } = await supabase
+      .from("events")
+      .select("*")
+      .order("created_at", { ascending: true })
+      .limit(2);
 
  
 
@@ -138,7 +112,7 @@ const FeaturedSections: React.FC = async () => {
 
           <div className='bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden p-6'>
             <ul className='divide-y divide-gray-200 dark:divide-gray-700'>
-              {events.map((event) => (
+              {events && events.map((event) => (
                 <li key={event.id} className='py-4 flex justify-between'>
                   <span className='text-lg text-gray-800 dark:text-gray-400'>
                     {event.title}
@@ -153,7 +127,7 @@ const FeaturedSections: React.FC = async () => {
           <Link
             href='/upcoming-events'
             className='mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium'>
-            View Full Calendar
+            View Full events
           </Link>
         </div>
       </div>

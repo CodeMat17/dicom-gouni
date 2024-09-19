@@ -7,6 +7,8 @@ const Home = async () => {
 
   const { data } = await supabase.from("hero").select("*").single();
 
+  
+
   return (
     <div className='w-full '>
       <HeroPage title={data.title} desc={data.desc} imgs={data.imgs} />

@@ -1,12 +1,8 @@
-// "use client";
 
-// import CollaboForm from "@/components/CollaboForm";
 import {createClient} from '@/utils/supabase/server'
 import HeaderTitle from "@/components/HeaderTitle";
-// import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Metadata } from 'next';
-// import { useState } from "react";
 
 
 export const metadata: Metadata = {
@@ -15,19 +11,9 @@ export const metadata: Metadata = {
     "Do not miss any of the upcoming events of the Directorate of Competitions, Godfrey Okoye University, Enugu.",
 };
 
-const events = [
-  { id: 1, title: "DebateCoolit Competition", date: "August - October" },
-  {
-    id: 2,
-    title: "National Intercollegiate Public Speaking Contest",
-    date: "August 22-30",
-  },
-  { id: 3, title: "Lavida Opens Debate", date: "September 6-8 on Discord" },
-  { id: 4, title: "Hackathon Competition", date: "Date TBD" },
-];
+
 
 const UpcomingEvents = async () => {
-  // const [collabo, setCollabo] = useState(false);
   const supabase = createClient()
 
   const {data: events, error} = await supabase.from('events').select('*') 
