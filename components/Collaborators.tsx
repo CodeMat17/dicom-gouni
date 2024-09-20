@@ -40,7 +40,7 @@ const ReviewCard = ({ name, username }: { name: string; username: string }) => {
   return (
     <figure
       className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border py-4 px-5 shadow-md",
+        "relative w-[260px] cursor-pointer overflow-hidden rounded-xl border py-4 px-5 shadow-md",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
