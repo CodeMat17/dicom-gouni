@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dicom.gouni.edu.ng"),
   keywords: [
     "GoUNI",
+    "GOUNI",
+    "gouni",
     "Education",
     "Academic",
     "competitions",
@@ -21,7 +23,8 @@ export const metadata: Metadata = {
     "Enugu",
     "Nigeria",
     "DICOM",
-    "university competitions", "collaboration",
+    "university competitions",
+    "collaboration",
     "student events",
     "academic competitions",
   ],
