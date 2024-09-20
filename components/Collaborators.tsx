@@ -36,24 +36,17 @@ const reviews = [
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
-const ReviewCard = ({
-  name,
-  username,
-}: {
-  name: string;
-  username: string;
-}) => {
+const ReviewCard = ({ name, username }: { name: string; username: string }) => {
   return (
     <figure
       className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border py-4 px-5",
+        "relative w-64 cursor-pointer overflow-hidden rounded-xl border py-4 px-5 shadow-md",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}>
       <div className='flex flex-row items-center gap-2'>
-       
         <div className='flex flex-col'>
           <figcaption className=' font-medium dark:text-white mb-1'>
             {name}
