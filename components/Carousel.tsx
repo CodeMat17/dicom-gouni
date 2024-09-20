@@ -82,9 +82,12 @@ const Carousel: React.FC<CarouselProps> = ({title, desc, imgs}) => {
           Directorate of Competitions at Godfrey Okoye University, Enugu.
         </p>
         <Button
+          aria-label='Explore Opportunities'
           asChild
           className='bg-transparent border border-white text-white font-medium py-2 px-6 rounded-full transition-colors duration-300 hover:bg-white hover:text-black'>
-          <Link href='/about-us'>Explore Opportunities</Link>
+          <Link href='/about-us' aria-label='Explore Opportunities link'>
+            Explore Opportunities
+          </Link>
         </Button>
       </div>
     </div>
