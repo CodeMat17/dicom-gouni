@@ -45,6 +45,7 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </ThemeProvider>
+     
       </body>
     </html>
   );

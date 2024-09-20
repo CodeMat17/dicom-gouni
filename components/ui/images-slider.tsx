@@ -48,6 +48,7 @@ export const ImagesSlider = ({
         img.src = image;
         img.onload = () => resolve(image);
         img.onerror = reject;
+        
       });
     });
 
