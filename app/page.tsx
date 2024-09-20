@@ -1,6 +1,7 @@
+import Carousel from "@/components/Carousel";
 import { Collaborators } from "@/components/Collaborators";
 import FeaturedSections from "@/components/FeaturedSections";
-import { HeroPage } from "@/components/HeroPage";
+// import { HeroPage } from "@/components/HeroPage";
 import { createClient } from "@/utils/supabase/server";
 
 const Home = async () => {
@@ -10,9 +11,11 @@ const Home = async () => {
 
   return (
     <div className='w-full '>
-      <HeroPage title={data.title} desc={data.desc} imgs={data.imgs} />
+      <Carousel title={data.title} desc={data.desc} imgs={data.imgs} />
+      {/* <HeroPage title={data.title} desc={data.desc} imgs={data.imgs} /> */}
 
       <Collaborators />
+
       <FeaturedSections />
     </div>
   );
