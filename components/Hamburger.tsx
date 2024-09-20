@@ -32,7 +32,6 @@ const Hamburger = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='mr-4 w-w-full max-w-[300px] lg:hidden text-lg'>
-        <DropdownMenuSeparator />
         <Link href='/'>
           <DropdownMenuItem className='text-lg'>HOME</DropdownMenuItem>
         </Link>
