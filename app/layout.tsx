@@ -10,6 +10,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dicom.gouni.edu.ng"),
+  keywords: [
+    "GoUNI",
+    "Education",
+    "Academic",
+    "competitions",
+    "Partnerships",
+    "Directorate of Competitions",
+    "Godfrey Okoye University",
+    "Enugu",
+    "Nigeria",
+    "DICOM",
+    "university competitions", "collaboration",
+    "student events",
+    "academic competitions",
+  ],
   title: {
     default: "DICOM - GOUNI",
     template: "%s | DICOM - GOUNI",
@@ -45,7 +60,6 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </ThemeProvider>
-     
       </body>
     </html>
   );
