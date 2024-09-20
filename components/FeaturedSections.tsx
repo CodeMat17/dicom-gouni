@@ -57,14 +57,14 @@ const FeaturedSections: React.FC = async () => {
 
   return (
     <section className='py-16 bg-gray-100 dark:bg-gray-950'>
-      <div className='container mx-auto px-3 space-y-12 max-w-4xl'>
+      <div className='container mx-auto px-3 space-y-12 max-w-6xl'>
         {/* Latest Achievements Section */}
         <div>
           <HeaderTitle title='Latest Achievements' align='center' />
          
 
           <Link href='/achievements' className="border">
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
               {achievements?.map((achievement: Achievement) => (
                 <div
                   key={achievement.id}

@@ -16,7 +16,7 @@ const ContactUsComponent: React.FC = () => {
         {/* Office Location and Contact Details */}
         <div className='flex flex-col gap-6'>
           <div>
-            <h2 className='text-2xl font-semibold mb-2 text-gray-700 dark:text-gray-300'>
+            <h2 className='text-xl font-medium mb-2 text-gray-700 dark:text-gray-300'>
               Office Location
             </h2>
             <p className=' text-gray-700 dark:text-gray-400 mb-1'>
@@ -27,7 +27,7 @@ const ContactUsComponent: React.FC = () => {
             <GoogleMapButton />
           </div>
           <div>
-            <h2 className='text-2xl font-semibold mb-2 text-gray-700 dark:text-gray-400'>
+            <h2 className='text-xl font-medium mb-2 text-gray-700 dark:text-gray-400'>
               Contact Details
             </h2>
             <p className=' text-gray-700 dark:text-gray-300 mb-2'>

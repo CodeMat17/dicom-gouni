@@ -30,9 +30,9 @@ const Header = () => {
             </Link>
             <div className='text-white leading-4'>
               <p className='font-semibold tracking-wider text-lg'>
-                Godfrey Okoye University
+                Directorate of Competitions
               </p>
-              <p className=''>Directorate of Competitions</p>
+              <p className=''>Godfrey Okoye University</p>
             </div>
           </div>
           <div className='hidden lg:flex'>

@@ -25,9 +25,9 @@ const Footer = () => {
         </Link>
         <div className='text-white leading-4'>
           <p className='font-semibold tracking-wider text-lg'>
-            Godfrey Okoye University
+            Directorate of Competitions
           </p>
-          <p className=''>Directorate of Competitions</p>
+          <p className=''>Godfrey Okoye University</p>
         </div>
       </div>
       <div className='w-full max-w-6xl mx-auto px-4 xl:px-0 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
@@ -40,32 +40,32 @@ const Footer = () => {
               Home
             </Link>
             <Link
-              href='/'
+              href='/about-us'
               className='w-fit transition duration-300 ease-in-out hover:scale-110 hover:text-gray-400'>
               About Us
             </Link>
             <Link
-              href='/'
+              href='/achievements'
               className='w-fit transition duration-500 ease-in-out hover:scale-110 hover:text-gray-400'>
               Achievements
             </Link>
             <Link
-              href='/'
+              href='/upcoming-events'
               className='w-fit transition duration-500 ease-in-out hover:scale-110 hover:text-gray-400'>
               Upcoming Events
             </Link>
             <Link
-              href='/'
+              href='/trainings-workshops'
               className='w-fit transition duration-500 ease-in-out hover:scale-110 hover:text-gray-400'>
               Training & Workshops
             </Link>
             <Link
-              href='/'
+              href='/get-involved'
               className='w-fit transition duration-500 ease-in-out hover:scale-110 hover:text-gray-400'>
               Get Involved
             </Link>
             <Link
-              href='/'
+              href='/contact-us'
               className='w-fit transition duration-500 ease-in-out hover:scale-110 hover:text-gray-400'>
               Contact Us
             </Link>
@@ -76,8 +76,8 @@ const Footer = () => {
           <p className='text-lg'>Address:</p>
           <div className='flex flex-col text-sm gap-3 mt-3'>
             <p>
-              Directorate of Competitions <br /> Within the Faculty
-              of Computer Science <br /> IECE.
+              Directorate of Competitions <br /> Within the Faculty of Computer
+              Science <br /> IECE.
             </p>
             <GoogleMapButton />
           </div>
