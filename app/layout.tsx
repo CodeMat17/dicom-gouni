@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,6 +53,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
+      <Head>
+        <meta
+          name='google-site-verification'
+          content='1JdJykuzZ8V4A8B0QyhPz7d6U1BZ5uwqpsldRCIadAU'
+        />
+      </Head>
       <body className={inter.className}>
         <ThemeProvider
           attribute='class'
