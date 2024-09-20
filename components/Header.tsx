@@ -44,6 +44,7 @@ const Header = () => {
       <div className='px-4 py-1.5 bg-[#179bd7] z-50'>
         <nav className='hidden lg:flex items-center justify-center lg:gap-2 text-purple-950 '>
           <Link
+            aria-label='home-link'
             href='/'
             className={`transition duration-500 font-medium px-3 py-1 rounded-lg hover:text-white hover:bg-[#253680]/20 hover:shadow whitespace-nowrap ${
               pathname === "/" ? "text-white bg-[#253680]/20" : ""
@@ -51,6 +52,7 @@ const Header = () => {
             Home
           </Link>
           <Link
+            aria-label='about-us-link'
             href='/about-us'
             className={`transition duration-500 font-medium px-3 py-1 rounded-lg hover:text-white hover:bg-[#253680]/20 hover:shadow whitespace-nowrap  ${
               pathname === "/about-us" ? "text-white bg-[#253680]/20" : ""
@@ -58,6 +60,7 @@ const Header = () => {
             About Us
           </Link>
           <Link
+            aria-label='achievements-link'
             href='/achievements'
             className={`transition duration-500 font-medium px-3 py-1 rounded-lg hover:text-white hover:bg-[#253680]/20 hover:shadow whitespace-nowrap  ${
               pathname === "/achievements" ? "text-white bg-[#253680]/20" : ""
@@ -65,6 +68,7 @@ const Header = () => {
             Achievements
           </Link>
           <Link
+            aria-label='events-link'
             href='/upcoming-events'
             className={`transition duration-500 font-medium px-3 py-1 rounded-lg hover:text-white hover:bg-[#253680]/20 hover:shadow whitespace-nowrap  ${
               pathname === "/upcoming-events"
@@ -74,6 +78,7 @@ const Header = () => {
             Upcoming Events
           </Link>
           <Link
+            aria-label='trainings-link'
             href='/trainings-workshops'
             className={`transition duration-500 font-medium px-3 py-1 rounded-lg hover:text-white hover:bg-[#253680]/20 hover:shadow whitespace-nowrap  ${
               pathname === "/trainings-workshops"
@@ -83,6 +88,7 @@ const Header = () => {
             Trainings & Workshops
           </Link>
           <Link
+            aria-label='get-involved-link'
             href='/get-involved'
             className={`transition duration-500 font-medium px-3 py-1 rounded-lg hover:text-white hover:bg-[#253680]/20 hover:shadow whitespace-nowrap  ${
               pathname === "/get-involved" ? "text-white bg-[#253680]/20" : ""
@@ -90,6 +96,7 @@ const Header = () => {
             Get Involved
           </Link>
           <Link
+            aria-label='contact-us-link'
             href='/contact-us'
             className={`transition duration-500 font-medium px-3 py-1 rounded-lg hover:text-white hover:bg-[#253680]/20 hover:shadow whitespace-nowrap  ${
               pathname === "/contact-us" ? "text-white bg-[#253680]/20" : ""

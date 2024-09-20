@@ -19,6 +19,7 @@ const Hamburger = () => {
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild className='lg:hidden'>
         <Button
+          aria-label='Hamburger-link'
           size='icon'
           variant='ghost'
           className={`transition transform duration-300 ease-in-out bg-[#253680] hover:bg-[#253680]/80 ${
@@ -32,35 +33,35 @@ const Hamburger = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='mr-4 w-w-full max-w-[300px] lg:hidden text-lg'>
-        <Link href='/'>
+        <Link href='/' aria-label='home-link'>
           <DropdownMenuItem className='text-lg'>HOME</DropdownMenuItem>
         </Link>
 
-        <Link href='/about-us'>
+        <Link href='/about-us' aria-label='about-us-link'>
           <DropdownMenuItem className='text-lg'>ABOUT US</DropdownMenuItem>
         </Link>
 
-        <Link href='/achievements'>
+        <Link href='/achievements' aria-label='achievements-link'>
           <DropdownMenuItem className='text-lg'> ACHIEVEMENTS</DropdownMenuItem>
         </Link>
 
-        <Link href='/upcoming-events'>
+        <Link href='/upcoming-events' aria-label='events-link'>
           <DropdownMenuItem className='text-lg'>
             UPCOMING EVENTS
           </DropdownMenuItem>
         </Link>
 
-        <Link href='/trainings-workshops'>
+        <Link href='/trainings-workshops' aria-label='trainings-link'>
           <DropdownMenuItem className='text-lg'>
             TRAININGS & WORKSHOPS
           </DropdownMenuItem>
         </Link>
 
-        <Link href='/get-involved'>
+        <Link href='/get-involved' aria-label='get-involved-link'>
           <DropdownMenuItem className='text-lg'>GET INVOLVED</DropdownMenuItem>
         </Link>
 
-        <Link href='/contact-us'>
+        <Link href='/contact-us' aria-label='contact-us-link'>
           <DropdownMenuItem className='text-lg'> CONTACT US</DropdownMenuItem>
         </Link>
       </DropdownMenuContent>

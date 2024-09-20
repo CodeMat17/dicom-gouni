@@ -18,7 +18,7 @@ export function ModeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
+        <Button aria-label="mode-toggle"
           variant='outline'
           size='icon'
           className='group bg-transparent border-gray-200 hover:bg-gray-200 text-blue-600'>
