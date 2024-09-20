@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "This is the official page of the Directorate of Competitions, Godfrey Okoye University, Enugu.",
   openGraph: {
-    title: "DICOM - GOUNI",
+    title: "Directorate of Competitions, Godfrey Okoye University, Enugu, Nigeria",
     description:
       "This is the official page of the Directorate of Competitions, Godfrey Okoye University, Enugu.",
     type: "website",
