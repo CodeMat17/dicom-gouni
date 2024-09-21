@@ -50,9 +50,17 @@ const ReviewCard = ({ name, username, img }: { name: string; username: string; i
       className={cn(
         "relative w-[280px] cursor-pointer overflow-hidden rounded-xl border p-4 shadow-md",
         // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        `border-gray-950/[.1] ${
+          name === "Rev. Fr. Prof. Christian Anieke"
+            ? "bg-amber-200"
+            : "bg-gray-950/[.01]"
+        }  hover:bg-gray-950/[.05]`,
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        `dark:border-gray-50/[.1] ${
+          name === "Rev. Fr. Prof. Christian Anieke"
+            ? "bg-amber-200"
+            : "dark:bg-gray-50/[.10]"
+        }  dark:hover:bg-gray-50/[.15]`
       )}>
       <div className='flex items-center gap-2 text-sm'>
         <Image
@@ -63,14 +71,24 @@ const ReviewCard = ({ name, username, img }: { name: string; username: string; i
           src={img}
           className='rounded-full'
         />
-        <figcaption className=' font-medium dark:text-white mb-1'>
+        <figcaption
+          className={`${
+            name === "Rev. Fr. Prof. Christian Anieke"
+              ? "text-gray-900"
+              : "dark:text-white"
+          } font-medium  mb-1`}>
           {name}
         </figcaption>
         {/* <div className='flex flex-col'>
         
         </div> */}
       </div>
-      <p className='ml-[48px] text-sm text-gray-500 font-medium dark:text-white/40'>{username}</p>
+      <p
+        className={`${
+          name === "Rev. Fr. Prof. Christian Anieke" ? "text-gray-600" : "dark:text-white/40"
+        } ml-[48px] text-sm text-gray-500 font-medium `}>
+        {username}
+      </p>
     </figure>
   );
 };

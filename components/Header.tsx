@@ -11,8 +11,6 @@ const Header = () => {
 
   const pathname = usePathname()
   
-
-
   return (
     <header className='w-full sticky top-0 z-50 '>
       <div className='w-full px-4 py-2 bg-[#253b80]/90 backdrop-filter backdrop-blur-md'>
