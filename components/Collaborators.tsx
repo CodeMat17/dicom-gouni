@@ -39,6 +39,11 @@ const reviews = [
     username: "GOUNI",
     img: "/gouni_logo.jpg",
   },
+  {
+    name: "Director, ICT",
+    username: "GOUNI",
+    img: "/gouni_logo.jpg",
+  },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
