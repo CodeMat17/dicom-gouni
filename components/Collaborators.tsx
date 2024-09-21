@@ -58,8 +58,8 @@ const ReviewCard = ({ name, username, img }: { name: string; username: string; i
         <Image
           alt=''
           priority
-          width={30}
-          height={30}
+          width={40}
+          height={40}
           src={img}
           className='rounded-full'
         />
@@ -70,7 +70,7 @@ const ReviewCard = ({ name, username, img }: { name: string; username: string; i
         
         </div> */}
       </div>
-      <p className='ml-[38px] text-sm text-gray-500 font-medium dark:text-white/40'>{username}</p>
+      <p className='ml-[48px] text-sm text-gray-500 font-medium dark:text-white/40'>{username}</p>
     </figure>
   );
 };
