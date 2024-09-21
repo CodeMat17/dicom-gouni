@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className='w-full sticky top-0 z-50 '>
       <div className='w-full px-4 py-2 bg-[#253b80]/90 backdrop-filter backdrop-blur-md'>
-        <div className='flex items-center justify-between max-w-6xl mx-auto w-full'>
+        <div className='flex items-center justify-between w-full'>
           <div className='flex items-center gap-2'>
             <Link href='/'>
               <Image

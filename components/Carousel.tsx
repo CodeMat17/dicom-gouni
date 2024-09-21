@@ -75,7 +75,7 @@ const Carousel: React.FC<CarouselProps> = ({title, desc, imgs}) => {
       <div className='absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4'>
         <h2
           className={` ${nerkoOne.className} font-bold text-4xl sm:text-5xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200`}>
-          Empowering Students Through Competition and Excellence
+          Empowering Students Through Competition and Excellence.
         </h2>
         <p className='text-lg text-center font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-300 mb-6'>
           Discover opportunities to compete, learn, and grow with the
