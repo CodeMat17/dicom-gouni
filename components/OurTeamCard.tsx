@@ -15,26 +15,7 @@ interface User {
   photo: string;
 }
 
-const users: User[] = [
-  {
-    name: "Mrs. Chukwu Uchanta",
-    position: "Director, Directorate of Competitions",
-    bio: "Mrs. Chukwu Uchanta is a seasoned director with over 20 years of experience in managing competitions at various levels. Her strategic vision and leadership have been instrumental in promoting talent and innovation.",
-    photo: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-  },
-  {
-    name: "John Doe",
-    position: "Head of Marketing",
-    bio: "John Doe is an expert in digital marketing with a focus on social media strategy and content creation. He has helped numerous brands establish their online presence and reach a wider audience.",
-    photo: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
-  },
-  {
-    name: "Jane Smith",
-    position: "Chief Technology Officer",
-    bio: "Jane Smith is a technology enthusiast with a passion for building scalable and efficient software solutions. She leads a team of engineers dedicated to driving technological innovation.",
-    photo: "https://assets.aceternity.com/demos/metallica.jpeg",
-  },
-];
+
 
 const OurTeamCards: FC = () => {
   const supabase = createClient();
@@ -84,6 +65,7 @@ const OurTeamCards: FC = () => {
 
   return (
     <div className='container max-w-6xl mx-auto p-6 bg-gray-50 dark:bg-gray-950'>
+   
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
         {team.map((user) => (
           <div

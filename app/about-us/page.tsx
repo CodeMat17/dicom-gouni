@@ -1,8 +1,17 @@
+import AboutUsNote from "@/components/AboutUsNote";
 import { AboutUsStatements } from "@/components/AboutUsStatements";
 import HeaderTitle from "@/components/HeaderTitle";
 import OurTeamCards from "@/components/OurTeamCard";
 import Services from "@/components/Services";
+import { createClient } from "@/utils/supabase/server";
 import { Metadata } from "next";
+
+export interface Statement {
+  id: number; // Adjust the type based on your actual data structure
+  title: string;
+  desc: string;
+  created_at: string; // Adjust based on your Supabase table
+}
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -11,26 +20,21 @@ export const metadata: Metadata = {
 };
 
 const AboutUs = async () => {
+  const supabase = createClient();
+
+  const { data: statements } = await supabase
+    .from("aboutUs")
+    .select("*")
+    .order("created_at", { ascending: true });
+
   return (
     <div className='bg-gray-50 dark:bg-gray-950 w-full min-h-screen '>
       <div className='py-12'>
-        <HeaderTitle title='About Us' align='center' />
+        {/* <HeaderTitle title='About Us' align='center' /> */}
 
-        <div className='px-4 space-y-3 max-w-2xl mx-auto dark:text-gray-400'>
-          <h1 className='text-xl font-medium text-center'>
-            Empowering Students Through Competition and Excellence
-          </h1>
-          <p>
-            We provide platforms that allow students to compete, learn and
-            foster an environment that challenges them to improve beyond their
-            limits as they journey into spheres unknown.
-          </p>
-          <p>
-            Join us on this transformational journey, where competition sparks
-            growth and excellence is a pursuit for the rest of life.
-          </p>
-        </div>
-        <AboutUsStatements />
+        <AboutUsNote />
+
+        <AboutUsStatements statements={statements || []} />
 
         <div className='mt-20'>
           <HeaderTitle title='Our Team' align='center' />
