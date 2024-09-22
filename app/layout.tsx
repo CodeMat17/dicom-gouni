@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -55,7 +56,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-     
       <body className={inter.className}>
         <ThemeProvider
           attribute='class'
@@ -63,7 +63,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           <Header />
-          <main> {children}</main>
+          <main>
+            {children}
+            <Analytics />
+          </main>
           <Footer />
           <Toaster />
         </ThemeProvider>
