@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     "academic competitions",
   ],
   title: {
-    default: "Directorate of Competitions - GOUNI",
-    template: "%s | Directorate of Competitions - GOUNI",
+    default: "Directorate of Competitions (DICOM) - GOUNI",
+    template: "%s | Directorate of Competitions (DICOM) - GOUNI",
   },
   description:
     "This is the official page of the Directorate of Competitions, Godfrey Okoye University, Enugu.",
