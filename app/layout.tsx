@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     google: "1JdJykuzZ8V4A8B0QyhPz7d6U1BZ5uwqpsldRCIadAU",
   },
   openGraph: {
-    title: "Directorate of Competitions, Godfrey Okoye University, Enugu.",
+    title: "Directorate of Competitions (DICOM), Godfrey Okoye University, Enugu.",
     description:
       "This is the official page of the Directorate of Competitions, Godfrey Okoye University, Enugu.",
     type: "website",
     locale: "en_US",
     url: "https://dicom.gouni.edu.ng/",
-    siteName: "DICOM | GOUNI",
+    siteName: "DICOM - GOUNI",
   },
 };
 
