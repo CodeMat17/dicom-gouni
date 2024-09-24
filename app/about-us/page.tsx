@@ -37,12 +37,12 @@ const AboutUs = async () => {
         <AboutUsStatements statements={statements || []} />
 
         <div className='mt-20'>
-          <HeaderTitle title='Our Team' align='center' />
+        
           <OurTeamCards />
         </div>
 
         <div className='mt-20'>
-          <HeaderTitle title='Our Services' align='center' />
+      
           <Services />
         </div>
       </div>

@@ -1,7 +1,12 @@
+'use client'
+
 import Marquee from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
 import HeaderTitle from "./HeaderTitle";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 const reviews = [
   {
@@ -50,6 +55,8 @@ const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({ name, username, img }: { name: string; username: string; img: string }) => {
+
+
   return (
     <figure
       className={cn(
@@ -90,7 +97,9 @@ const ReviewCard = ({ name, username, img }: { name: string; username: string; i
       </div>
       <p
         className={`${
-          name === "Rev. Fr. Prof. Christian Anieke" ? "text-gray-600" : "dark:text-white/40"
+          name === "Rev. Fr. Prof. Christian Anieke"
+            ? "text-gray-600"
+            : "dark:text-white/40"
         } ml-[48px] text-sm text-gray-500 font-medium `}>
         {username}
       </p>
@@ -99,24 +108,86 @@ const ReviewCard = ({ name, username, img }: { name: string; username: string; i
 };
 
 export function Collaborators() {
-  return (
-    <div className='relative flex h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl'>
-      <div className='px-4'>
-        <HeaderTitle title='Collaborators so far' align='center' />
-      </div>
+  const { ref, inView } = useInView({ threshold: 0.2 });
+  const [titleInView, setTitleInView] = useState(false); // Trigger animation only once
 
-      <Marquee pauseOnHover className='[--duration:20s]'>
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+  useEffect(() => {
+    if (inView) {
+      setTitleInView(true);
+    }
+  }, [inView]);
+
+  const titleVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.1, // Adjust delay for each letter
+      },
+    }),
+  };
+
+  // Variants for the content sliding up
+  const contentVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: 2.5, // Wait until the title animation completes
+      },
+    },
+  };
+
+  // // Variants for the card animation (slide up when in view)
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2, // Delay each card animation
+        duration: 0.6,
+      },
+    }),
+  };
+
+  const subtitle = "COLLABORATORS SO FAR";
+
+  return (
+    <div
+      ref={ref}
+      className='relative flex h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl'>
+      <motion.h1
+        className='text-4xl font-bold text-center dark:text-gray-300 mx-4 mb-6'
+        initial='hidden'
+        animate={titleInView ? "visible" : "hidden"}>
+        {subtitle.split("").map((letter, index) => (
+          <motion.span key={index} custom={index} variants={titleVariants}>
+            {letter}
+          </motion.span>
         ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className='[--duration:20s]'>
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background'></div>
-      <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background'></div>
+      </motion.h1>
+
+      <motion.div
+        initial='hidden'
+        animate={titleInView ? "visible" : "hidden"}
+        variants={contentVariants}>
+        <Marquee pauseOnHover className='[--duration:20s]'>
+          {firstRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+        <Marquee reverse pauseOnHover className='[--duration:20s]'>
+          {secondRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+        <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background'></div>
+        <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background'></div>
+      </motion.div>
     </div>
   );
 }

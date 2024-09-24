@@ -1,12 +1,7 @@
 "use client";
-import {
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-  motion,
-} from "framer-motion";
+
+import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import HeaderTitle from "../HeaderTitle";
 
 interface TimelineEntry {
   title: string;
@@ -17,6 +12,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const [subtitleAnimationComplete, setSubtitleAnimationComplete] =
+    useState(false); // To track subtitle animation
 
   useEffect(() => {
     if (ref.current) {
@@ -33,56 +30,91 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
+  // Variants for the subtitle animation (letter by letter)
+  const subtitleVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.1, // Adjust delay for each letter
+        duration: 0.4,
+      },
+    }),
+  };
+
   return (
     <div
       className='w-full bg-white dark:bg-gray-950 font-sans md:px-10 py-6'
       ref={containerRef}>
-  
       <div className='max-w-6xl mx-auto px-4 md:px-8 lg:px-10'>
-        <h2 className='text-lg md:text-4xl text-black dark:text-white max-w-4xl'>
-          Key competitions the Directorate has participated in:
-        </h2>
-        {/* <p className='text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm'>
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
-        </p> */}
-      </div>
-
-      <div ref={ref} className='relative max-w-6xl mx-auto pb-20'>
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className='flex justify-start pt-10 md:pt-20 md:gap-10'>
-            <div className='sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'>
-              <div className='h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center'>
-                <div className='h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2' />
-              </div>
-              <h3 className='hidden md:block text-xl md:pl-20 md:text-3xl lg:text-4xl font-bold text-neutral-500 dark:text-neutral-500 '>
-                {item.title}
-              </h3>
-            </div>
-
-            <div className='relative pl-20 pr-4 md:pl-4 w-full'>
-              <h3 className='md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500'>
-                {item.title}
-              </h3>
-              {item.content}{" "}
-            </div>
-          </div>
-        ))}
-        <div
-          style={{
-            height: height + "px",
+        {/* Subtitle animation */}
+        <motion.h2
+          className='text-4xl text-center font-bold text-black dark:text-gray-300 mb-12'
+          initial='hidden'
+          animate='visible'
+          variants={{
+            visible: { transition: { staggerChildren: 0.05 } },
           }}
-          className='absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] '>
-          <motion.div
+          onAnimationComplete={() => setSubtitleAnimationComplete(true)}>
+          {"OUR ACHIEVEMENTS".split("").map((char, i) => (
+            <motion.span key={i} variants={subtitleVariants} custom={i}>
+              {char}
+            </motion.span>
+          ))}
+        </motion.h2>
+
+
+
+
+        
+
+        {/* Timeline content animation */}
+        <motion.div
+          ref={ref}
+          className='relative max-w-6xl mx-auto pb-20'
+          initial='hidden'
+          animate={subtitleAnimationComplete ? "visible" : "hidden"} // Animate when subtitle is done
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}>
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className='flex justify-start pt-10 md:pt-20 md:gap-10'>
+              <div className='sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'>
+                <div className='h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center'>
+                  <div className='h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2' />
+                </div>
+                <h3 className='hidden md:block text-xl md:pl-20 md:text-3xl lg:text-4xl font-bold text-neutral-500 dark:text-neutral-500 '>
+                  {item.title}
+                </h3>
+              </div>
+
+              <div className='relative pl-20 pr-4 md:pl-4 w-full'>
+                <h3 className='md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500'>
+                  {item.title}
+                </h3>
+                {item.content}{" "}
+              </div>
+            </div>
+          ))}
+
+          <div
             style={{
-              height: heightTransform,
-              opacity: opacityTransform,
+              height: height + "px",
             }}
-            className='absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full'
-          />
-        </div>
+            className='absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] '>
+            <motion.div
+              style={{
+                height: heightTransform,
+                opacity: opacityTransform,
+              }}
+              className='absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full'
+            />
+          </div>
+        </motion.div>
       </div>
     </div>
   );

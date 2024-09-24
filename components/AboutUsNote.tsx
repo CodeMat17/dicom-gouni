@@ -21,7 +21,7 @@ const AboutUsNote = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: i * 0.05, // Adjust delay for each letter
+        delay: i * 0.1, // Adjust delay for each letter
       },
     }),
   };
@@ -34,7 +34,7 @@ const AboutUsNote = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        delay: 1, // Wait until the title animation completes
+        delay: 1.5, // Wait until the title animation completes
       },
     },
   };
@@ -47,7 +47,7 @@ const AboutUsNote = () => {
       className='w-full flex flex-col items-center justify-center'>
       {/* Subtitle animation */}
       <motion.h1
-        className='text-4xl font-bold text-center'
+        className='text-4xl font-bold text-center dark:text-gray-300'
         initial='hidden'
         animate={titleInView ? "visible" : "hidden"}>
         {subtitle.split("").map((letter, index) => (

@@ -10,8 +10,7 @@ export const metadata: Metadata = {
 
 const Achievements = () => {
   return (
-    <div className='w-full py-12'>
-      <HeaderTitle title='Our Achievements' align='center' />
+    <div className='w-full'>
 
       <AchievementTimeline />
     </div>

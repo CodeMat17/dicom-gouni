@@ -18,7 +18,6 @@ type Achievement = {
   content: AchievementContent[];
 };
 
-
 const FeaturedSections: React.FC = async () => {
   const supabase = createClient();
 
@@ -56,6 +55,7 @@ const FeaturedSections: React.FC = async () => {
  
 
   return (
+   
     <section className='py-16 bg-gray-100 dark:bg-gray-950'>
       <div className='container mx-auto px-3 space-y-12 max-w-6xl'>
         {/* Latest Achievements Section */}
