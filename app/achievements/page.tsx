@@ -1,5 +1,4 @@
 import { AchievementTimeline } from "@/components/AchievementsTimeline";
-import HeaderTitle from "@/components/HeaderTitle";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

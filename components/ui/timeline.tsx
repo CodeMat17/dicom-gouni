@@ -64,10 +64,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           ))}
         </motion.h2>
 
-
-
-
-        
+        <h2 className="text-2xl dark:text-gray-300">Key competitions the Directorate has participated in, including awards won and milestones achieved.</h2>
 
         {/* Timeline content animation */}
         <motion.div
