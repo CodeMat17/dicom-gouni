@@ -19,7 +19,7 @@ const Footer = () => {
             priority
             width={55}
             height={55}
-            src='/gouni_logo.jpg'
+            src='/dicom_logo.webp'
             className='rounded-full'
           />
         </Link>
