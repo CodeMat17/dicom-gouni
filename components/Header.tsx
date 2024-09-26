@@ -16,7 +16,9 @@ const Header = () => {
       <div className='w-full px-4 py-2 bg-[#253b80]/90 backdrop-filter backdrop-blur-md'>
         <div className='flex items-center justify-between w-full'>
           <div className='flex items-center gap-2'>
+           
             <Link href='/'>
+              <div className="border-4 rounded-full border-[#179bd7]">
               <Image
                 alt=''
                 priority
@@ -24,7 +26,8 @@ const Header = () => {
                 height={55}
                 src='/dicom_logo.webp'
                 className='rounded-full'
-              />
+              /> 
+           </div>
             </Link>
             <div className='text-white leading-4'>
               <p className='font-semibold tracking-wider text-lg'>
@@ -74,6 +77,16 @@ const Header = () => {
                 : ""
             }`}>
             Upcoming Events
+          </Link>
+          <Link
+            aria-label='gallery-link'
+            href='/gallery'
+            className={`transition duration-500 font-medium px-3 py-1 rounded-lg hover:text-white hover:bg-[#253680]/20 hover:shadow whitespace-nowrap  ${
+              pathname === "/gallery"
+                ? "text-white bg-[#253680]/20"
+                : ""
+            }`}>
+            Gallery
           </Link>
           <Link
             aria-label='trainings-link'

@@ -14,7 +14,8 @@ const Footer = () => {
     <div className='bg-slate-900 text-gray-300'>
       <div className='flex items-center gap-2 pt-8 px-4 xl:px-0 max-w-6xl mx-auto'>
         <Link href='/'>
-          <Image
+          <div className="border-4 rounded-full border-[#179bd7]">
+              <Image
             alt=''
             priority
             width={55}
@@ -22,6 +23,8 @@ const Footer = () => {
             src='/dicom_logo.webp'
             className='rounded-full'
           />
+             </div>
+        
         </Link>
         <div className='text-white leading-4'>
           <p className='font-semibold tracking-wider text-lg'>

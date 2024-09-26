@@ -18,6 +18,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: process.env.NEXT_PUBLIC_UPCOMING_EVENTS!,
       lastModified: new Date(),
     },
+      {
+      url: process.env.NEXT_PUBLIC_GALLERY!,
+      lastModified: new Date(),
+    },
     {
       url: process.env.NEXT_PUBLIC_TRAINING_WORKSHOP!,
       lastModified: new Date(),

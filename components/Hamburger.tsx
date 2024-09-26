@@ -4,7 +4,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AlignRightIcon, X } from "lucide-react";
@@ -32,7 +31,8 @@ const Hamburger = () => {
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className='mr-4 w-w-full max-w-[300px] lg:hidden text-lg'>
+      <DropdownMenuContent className='mr-8 w-full max-w-[300px] lg:hidden text-xl font-medium flex flex-col gap-3'>
+
         <Link href='/' aria-label='home-link'>
           <DropdownMenuItem className='text-lg'>HOME</DropdownMenuItem>
         </Link>
@@ -49,6 +49,10 @@ const Hamburger = () => {
           <DropdownMenuItem className='text-lg'>
             UPCOMING EVENTS
           </DropdownMenuItem>
+        </Link>
+
+        <Link href='/gallery' aria-label='gallery-link'>
+          <DropdownMenuItem className='text-lg'>GALLERY</DropdownMenuItem>
         </Link>
 
         <Link href='/trainings-workshops' aria-label='trainings-link'>

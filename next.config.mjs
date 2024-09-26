@@ -16,7 +16,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "assets.aceternity.com",
+        hostname: "startup-template-sage.vercel.app",
       },
     ],
   },
