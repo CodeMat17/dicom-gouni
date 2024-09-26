@@ -9,82 +9,14 @@ export function GalleryComponent() {
             className='dark:hidden block'
             animationStyle='top-in-bottom-out'
             videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://dicom.gouni.edu.ng/stormy-light.jpg'
+            thumbnailSrc='https://wweuxvuqgqaqfwbpoivy.supabase.co/storage/v1/object/public/dicom/video-image/2.jpg?t=2024-09-26T18%3A46%3A58.769Z'
             thumbnailAlt='Hero Video'
           />
           <HeroVideoDialog
             className='hidden dark:block'
             animationStyle='top-in-bottom-out'
             videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://dicom.gouni.edu.ng/stormy-dark.jpg'
-            thumbnailAlt='Hero Video'
-          />
-        </div>
-
-        <div className='relative w-full sm:w-[450px] md:w-[350px]'>
-          <HeroVideoDialog
-            className='dark:hidden block'
-            animationStyle='top-in-bottom-out'
-            videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://startup-template-sage.vercel.app/hero-light.png'
-            thumbnailAlt='Hero Video'
-          />
-          <HeroVideoDialog
-            className='hidden dark:block'
-            animationStyle='top-in-bottom-out'
-            videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://startup-template-sage.vercel.app/hero-dark.png'
-            thumbnailAlt='Hero Video'
-          />
-        </div>
-
-        <div className='relative w-full sm:w-[450px] md:w-[350px]'>
-          <HeroVideoDialog
-            className='dark:hidden block'
-            animationStyle='top-in-bottom-out'
-            videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://startup-template-sage.vercel.app/hero-light.png'
-            thumbnailAlt='Hero Video'
-          />
-          <HeroVideoDialog
-            className='hidden dark:block'
-            animationStyle='top-in-bottom-out'
-            videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://startup-template-sage.vercel.app/hero-dark.png'
-            thumbnailAlt='Hero Video'
-          />
-        </div>
-
-        <div className='relative w-full sm:w-[450px] md:w-[350px]'>
-          <HeroVideoDialog
-            className='dark:hidden block'
-            animationStyle='top-in-bottom-out'
-            videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://startup-template-sage.vercel.app/hero-light.png'
-            thumbnailAlt='Hero Video'
-          />
-          <HeroVideoDialog
-            className='hidden dark:block'
-            animationStyle='top-in-bottom-out'
-            videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://startup-template-sage.vercel.app/hero-dark.png'
-            thumbnailAlt='Hero Video'
-          />
-        </div>
-
-        <div className='relative w-full sm:w-[450px] md:w-[350px]'>
-          <HeroVideoDialog
-            className='dark:hidden block'
-            animationStyle='top-in-bottom-out'
-            videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://startup-template-sage.vercel.app/hero-light.png'
-            thumbnailAlt='Hero Video'
-          />
-          <HeroVideoDialog
-            className='hidden dark:block'
-            animationStyle='top-in-bottom-out'
-            videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://startup-template-sage.vercel.app/hero-dark.png'
+            thumbnailSrc='https://wweuxvuqgqaqfwbpoivy.supabase.co/storage/v1/object/public/dicom/video-image/3.jpg?t=2024-09-26T18%3A47%3A28.087Z'
             thumbnailAlt='Hero Video'
           />
         </div>
