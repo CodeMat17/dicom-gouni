@@ -9,14 +9,14 @@ export function GalleryComponent() {
             className='dark:hidden block'
             animationStyle='top-in-bottom-out'
             videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://wweuxvuqgqaqfwbpoivy.supabase.co/storage/v1/object/public/dicom/video-image/2.jpg?t=2024-09-26T18%3A46%3A58.769Z'
+            thumbnailSrc='https://wweuxvuqgqaqfwbpoivy.supabase.co/storage/v1/object/public/dicom/video-image/2.jpg?t=2024-09-26T19%3A13%3A52.284Z'
             thumbnailAlt='Hero Video'
           />
           <HeroVideoDialog
             className='hidden dark:block'
             animationStyle='top-in-bottom-out'
             videoSrc='https://www.youtube.com/embed/jXFx6Vl1RjA'
-            thumbnailSrc='https://wweuxvuqgqaqfwbpoivy.supabase.co/storage/v1/object/public/dicom/video-image/3.jpg?t=2024-09-26T18%3A47%3A28.087Z'
+            thumbnailSrc='https://wweuxvuqgqaqfwbpoivy.supabase.co/storage/v1/object/public/dicom/video-image/3.jpg?t=2024-09-26T19%3A14%3A06.822Z'
             thumbnailAlt='Hero Video'
           />
         </div>
