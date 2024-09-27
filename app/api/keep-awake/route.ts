@@ -1,8 +1,8 @@
 
-import { NextApiRequest, NextApiResponse } from 'next';
+import type {  NextResponse } from "next/server";
 import {supabaseServiceClient} from '@/utils/supabase/service'
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (res: NextResponse) => {
 
 
   try {
@@ -18,11 +18,24 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
         supabaseServiceClient.from("team").select("id"),
       ]);
 
-    console.log("Keeping backend awake...");
-    return res.status(200).json({ message: "Backend is awake" });
+     console.log("Keeping backend awake...");
+     return new Response(JSON.stringify({ message: "Backend is awake" }), {
+       status: 200,
+       headers: {
+         "Content-Type": "application/json",
+       },
+     });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Error keeping backend awake" });
+   return new Response(
+     JSON.stringify({ message: "Error keeping backend awake" }),
+     {
+       status: 500,
+       headers: {
+         "Content-Type": "application/json",
+       },
+     }
+   );
   }
 };
 
