@@ -1,5 +1,13 @@
 import { GalleryComponent } from '@/components/GalleryComponent';
 import LetterPullup from "@/components/magicui/letter-pullup";
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description:
+    "Have a look at some of the student videos and photos while in action.",
+};
 
 const Gallery = () => {
     return (
