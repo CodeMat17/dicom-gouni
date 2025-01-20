@@ -50,7 +50,7 @@ const reviews = [
     img: "/gouni_logo.jpg",
   },
   {
-    name: "Directorate of Student Mentorship & Parents Forum",
+    name: "Directorate of Students Mentorship & Parents Forum",
     username: "GOUNI",
     img: "/gouni_logo.jpg",
   },
