@@ -49,6 +49,11 @@ const reviews = [
     username: "GOUNI",
     img: "/gouni_logo.jpg",
   },
+  {
+    name: "Directorate of Student Mentorship & Parents Forum",
+    username: "GOUNI",
+    img: "/gouni_logo.jpg",
+  },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
