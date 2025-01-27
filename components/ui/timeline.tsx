@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { sanitizeContent } from "./sanitizeContent";
 
 interface TimelineEntry {
   title: string;
@@ -9,6 +10,24 @@ interface TimelineEntry {
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+
+const formatTextContent = (node: React.ReactNode): string[] => {
+  const textSegments: string[] = [];
+
+  const extractText = (child: React.ReactNode) => {
+    if (typeof child === "string") {
+      textSegments.push(child);
+    } else if (React.isValidElement(child) && child.props.children) {
+      React.Children.forEach(child.props.children, extractText);
+    }
+  };
+
+  React.Children.forEach(node, extractText);
+
+  return textSegments;
+};
+
+
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -43,6 +62,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     }),
   };
 
+  
+
   return (
     <div
       className='w-full bg-white dark:bg-gray-950 font-sans md:px-10 py-6'
@@ -64,7 +85,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           ))}
         </motion.h2>
 
-        <h2 className="text-2xl dark:text-gray-300">Key competitions the Directorate has participated in, including awards won and milestones achieved.</h2>
+        <h2 className='text-2xl dark:text-gray-300'>
+          Key competitions the Directorate has participated in, including awards
+          won and milestones achieved.
+        </h2>
 
         {/* Timeline content animation */}
         <motion.div
@@ -93,7 +117,33 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 <h3 className='md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500'>
                   {item.title}
                 </h3>
-                {item.content}{" "}
+                {/* {item.content} */}
+
+                {/* Render formatted text content */}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizeContent(
+                      formatTextContent(item.content)
+                        .join("\n") // Combine lines with newline characters
+                        .split("\n") // Split by newlines
+                        .map((line) => `<p>${line}</p>`) // Wrap each line in <p>
+                        .join("") // Combine back into a single HTML string
+                    ),
+                  }}
+                />
+
+                {/* Render non-text content */}
+                <div>
+                  {React.Children.map(item.content, (child) => {
+                    if (
+                      React.isValidElement(child) &&
+                      typeof child !== "string"
+                    ) {
+                      return child; // Render non-text elements like images
+                    }
+                    return null; // Ignore text content
+                  })}
+                </div>
               </div>
             </div>
           ))}

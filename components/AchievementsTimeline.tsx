@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import { sanitizeContent } from "./ui/sanitizeContent";
 
 
 
@@ -23,7 +24,7 @@ export async function AchievementTimeline() {
   const { data: achievementsData, error } = await supabase
     .from("achievements")
     .select("*")
-    .order("created_at", { ascending: true });
+    .order("created_at", { ascending: false });
 
   if (error) {
     console.error("Error fetching achievements: ", error);
@@ -46,9 +47,15 @@ export async function AchievementTimeline() {
      content: (
        <div>
          <p className='text-neutral-800 dark:text-neutral-200 font-normal mb-8'>
-           {achievement.content[0]?.desc}
+           {/* {achievement.content[0]?.desc} */}
+           
          </p>
-         <div className='grid grid-cols-2 gap-4'>
+         <div
+           dangerouslySetInnerHTML={{
+             __html: sanitizeContent(achievement.content[0]?.desc),
+           }}
+         />
+         <div className='grid grid-cols-2 gap-4 mt-4'>
            {achievement.content[0]?.img.map((imageSrc, index) => (
              <Image
                key={index}
