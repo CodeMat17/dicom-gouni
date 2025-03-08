@@ -113,11 +113,11 @@ const FeaturedSections: React.FC = async () => {
             <ul className='divide-y divide-gray-200 dark:divide-gray-700'>
               {events &&
                 events.map((event) => (
-                  <li key={event.id} className='py-4 flex justify-between'>
-                    <span className='text-lg text-gray-800 dark:text-gray-400'>
+                  <li key={event.id} className='py-4 flex flex-col gap-3'>
+                    <span className='text-lg text-gray-800 dark:text-gray-400 font-medium'>
                       {event.title}
                     </span>
-                    <span className='text-gray-600 dark:text-gray-500'>
+                    <span className='text-base text-gray-600 dark:text-gray-500'>
                       {event.date}
                     </span>
                   </li>
