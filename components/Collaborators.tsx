@@ -54,6 +54,11 @@ const reviews = [
     username: "GOUNI",
     img: "/gouni_logo.jpg",
   },
+  {
+    name: "Bluecode Africa",
+    username: "External Company",
+    img: "/bc.png",
+  },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
